@@ -84,50 +84,55 @@ mkdir -p ${BUILDD}
 ################################################################################
 ## indirect build-dependencies; build-system
 
-src m4-1.4.17 tar.gz http://ftp.gnu.org/gnu/m4/m4-1.4.17.tar.gz
-./configure --prefix=$PREFIX
-make && make install
+#src m4-1.4.17 tar.gz http://ftp.gnu.org/gnu/m4/m4-1.4.17.tar.gz
+#./configure --prefix=$PREFIX
+#make && make install
 
-src pkg-config-0.28 tar.gz http://pkgconfig.freedesktop.org/releases/pkg-config-0.28.tar.gz
-./configure --prefix=$PREFIX --with-internal-glib
-make $MAKEFLAGS
-make install
+#src pkg-config-0.28 tar.gz http://pkgconfig.freedesktop.org/releases/pkg-config-0.28.tar.gz
+#./configure --prefix=$PREFIX --with-internal-glib
+#make $MAKEFLAGS
+#make install
+brew install pkg-config
+brew install autoconf
+brew install automake
+brew install cmake
+brew install zlib
 
-src autoconf-2.69 tar.gz http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz
-autoconfbuild
-hash autoconf
-hash autoreconf
+#src autoconf-2.69 tar.gz http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz
+#autoconfbuild
+#hash autoconf
+#hash autoreconf
 
-src automake-1.14 tar.gz http://ftp.gnu.org/gnu/automake/automake-1.14.tar.gz
-autoconfbuild
-hash automake
+#src automake-1.14 tar.gz http://ftp.gnu.org/gnu/automake/automake-1.14.tar.gz
+#autoconfbuild
+#hash automake
 
-src libtool-2.4 tar.gz http://ftp.gnu.org/gnu/libtool/libtool-2.4.tar.gz
-autoconfbuild
-hash libtoolize
+#src libtool-2.4 tar.gz http://ftp.gnu.org/gnu/libtool/libtool-2.4.tar.gz
+#autoconfbuild
+#hash libtoolize
 
-src make-4.1 tar.gz http://ftp.gnu.org/gnu/make/make-4.1.tar.gz
-autoconfbuild
-hash make
+#src make-4.1 tar.gz http://ftp.gnu.org/gnu/make/make-4.1.tar.gz
+#autoconfbuild
+#hash make
 
-src cmake-2.8.12.2 tar.gz http://www.cmake.org/files/v2.8/cmake-2.8.12.2.tar.gz
-./bootstrap --prefix=$PREFIX
-make $MAKEFLAGS
-make install
+#src cmake-2.8.12.2 tar.gz http://www.cmake.org/files/v2.8/cmake-2.8.12.2.tar.gz
+#./bootstrap --prefix=$PREFIX
+#make $MAKEFLAGS
+#make install
 
 ################################################################################
 
-src ruby-2.3.6 tar.gz https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.6.tar.gz
-CC=clang CXX=clang++ autoconfbuild
+#src ruby-2.3.6 tar.gz https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.6.tar.gz
+#CC=clang CXX=clang++ autoconfbuild
 
 ################################################################################
 
-src zlib-1.2.7 tar.gz ftp://ftp.simplesystems.org/pub/libpng/png/src/history/zlib/zlib-1.2.7.tar.gz
-CFLAGS="${GLOBAL_CFLAGS}" \
-LDFLAGS="${GLOBAL_LDFLAGS}" \
-./configure --archs="$OSXARCH" --prefix=$PREFIX
-make $MAKEFLAGS
-make install
+#src zlib-1.2.7 tar.gz ftp://ftp.simplesystems.org/pub/libpng/png/src/history/zlib/zlib-1.2.7.tar.gz
+#CFLAGS="${GLOBAL_CFLAGS}" \
+#LDFLAGS="${GLOBAL_LDFLAGS}" \
+#./configure --archs="$OSXARCH" --prefix=$PREFIX
+#make $MAKEFLAGS
+#make install
 
 ################################################################################
 ## actual dependencies of zyn, hide visibility.
