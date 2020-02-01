@@ -92,11 +92,12 @@ mkdir -p ${BUILDD}
 #./configure --prefix=$PREFIX --with-internal-glib
 #make $MAKEFLAGS
 #make install
-brew install pkg-config
-brew install autoconf
-brew install automake
-brew install cmake
-brew install zlib
+#brew install pkg-config
+#brew install autoconf
+#brew install automake
+#brew install cmake
+#brew install zlib
+#brew install ruby
 
 #src autoconf-2.69 tar.gz http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz
 #autoconfbuild

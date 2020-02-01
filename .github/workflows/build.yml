@@ -7,5 +7,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v1
+    - uses: setup_dep
+      run: brew install pkg-config autoconf automake cmake zlib ruby
     - name: do-it
       run: sh doit.sh
