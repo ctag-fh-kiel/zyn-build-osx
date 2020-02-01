@@ -118,7 +118,7 @@ make install
 ################################################################################
 
 src ruby-2.3.6 tar.gz https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.6.tar.gz
-CC=gcc CXX=g++ autoconfbuild
+CC=clang CXX=clang++ autoconfbuild
 
 ################################################################################
 
@@ -216,7 +216,7 @@ git submodule update --recursive
 
 ruby ./rebuild-fcache.rb
 
-gcc ${GLOBAL_CPPFLAGS} ${GLOBAL_CFLAGS} ${OSXARCH} \
+clang ${GLOBAL_CPPFLAGS} ${GLOBAL_CFLAGS} ${OSXARCH} \
 	-D STBTT_STATIC \
 	-o deps/nanovg/src/nanovg.o \
 	-c deps/nanovg/src/nanovg.c -fPIC
@@ -224,7 +224,7 @@ ar -rc deps/libnanovg.a deps/nanovg/src/*.o
 
 ( \
   cd deps/pugl && rm -rf build && \
-  CC=gcc CFLAGS="${GLOBAL_CPPFLAGS} ${OSXARCH} ${GLOBAL_CFLAGS}" LINKFLAGS="${OSXARCH} $GLOBAL_LDFLAGS" \
+  CC=clang CFLAGS="${GLOBAL_CPPFLAGS} ${OSXARCH} ${GLOBAL_CFLAGS}" LINKFLAGS="${OSXARCH} $GLOBAL_LDFLAGS" \
   ./waf configure --no-cairo --static && \
   ./waf \
 )
@@ -240,7 +240,7 @@ cp -v ${PREFIX}/lib/libuv.a deps/
 
 cd ${BUILDD}/mruby-zest-build
 
-gcc ${GLOBAL_CPPFLAGS} ${GLOBAL_CFLAGS} ${OSXARCH} \
+clang ${GLOBAL_CPPFLAGS} ${GLOBAL_CFLAGS} ${OSXARCH} \
 	-shared -pthread \
 	-o libzest.dylib \
 	`find mruby/build/host -type f -name "*.o" | grep -v bin` ./deps/libnanovg.a \
@@ -249,7 +249,7 @@ gcc ${GLOBAL_CPPFLAGS} ${GLOBAL_CFLAGS} ${OSXARCH} \
 	src/osc-bridge/libosc-bridge.a \
 	${PREFIX}/lib/libuv.a
 
-gcc ${GLOBAL_CPPFLAGS} ${GLOBAL_CFLAGS} ${OSXARCH} \
+clang ${GLOBAL_CPPFLAGS} ${GLOBAL_CFLAGS} ${OSXARCH} \
 	-I deps/pugl \
 	-std=gnu99 \
 	-o zyn-fusion \
