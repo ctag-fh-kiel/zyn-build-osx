@@ -242,7 +242,6 @@ cd ${BUILDD}/mruby-zest-build
 
 gcc ${GLOBAL_CPPFLAGS} ${GLOBAL_CFLAGS} ${OSXARCH} \
 	-shared -pthread \
-	-static-libgcc \
 	-o libzest.dylib \
 	`find mruby/build/host -type f -name "*.o" | grep -v bin` ./deps/libnanovg.a \
 	${GLOBAL_LDFLAGS} \
@@ -252,7 +251,7 @@ gcc ${GLOBAL_CPPFLAGS} ${GLOBAL_CFLAGS} ${OSXARCH} \
 
 gcc ${GLOBAL_CPPFLAGS} ${GLOBAL_CFLAGS} ${OSXARCH} \
 	-I deps/pugl \
-	-std=gnu99 -static-libgcc \
+	-std=gnu99 \
 	-o zyn-fusion \
 	test-libversion.c \
 	${GLOBAL_LDFLAGS} \
@@ -298,8 +297,8 @@ cmake -DCMAKE_INSTALL_PREFIX=/ \
 	-DCMAKE_OSX_ARCHITECTURES="$ARCHITECTURE" \
 	-DCMAKE_C_FLAGS="-I${PREFIX}/include $GLOBAL_CFLAGS -Wno-unused-parameter" \
 	-DCMAKE_CXX_FLAGS="-I${PREFIX}/include $GLOBAL_CXXFLAGS -Wno-unused-parameter -fpermissive" \
-	-DCMAKE_EXE_LINKER_FLAGS="-L$PREFIX/lib $GLOBAL_LDFLAGS -static-libgcc -static-libstdc++" \
-	-DCMAKE_SHARED_LINKER_FLAGS="-L$PREFIX/lib $GLOBAL_LDFLAGS -static-libgcc -static-libstdc++" \
+	-DCMAKE_EXE_LINKER_FLAGS="-L$PREFIX/lib $GLOBAL_LDFLAGS -static-libstdc++" \
+	-DCMAKE_SHARED_LINKER_FLAGS="-L$PREFIX/lib $GLOBAL_LDFLAGS -static-libstdc++" \
 	-DCMAKE_SKIP_BUILD_RPATH=ON \
 	-DNoNeonPlease=ON \
 	..
