@@ -99,10 +99,10 @@ mkdir -p ${BUILDD}
 #brew install zlib
 #brew install ruby
 
-#src autoconf-2.69 tar.gz http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz
-#autoconfbuild
-#hash autoconf
-#hash autoreconf
+src autoconf-2.69 tar.gz http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz
+autoconfbuild
+hash autoconf
+hash autoreconf
 
 src automake-1.14 tar.gz http://ftp.gnu.org/gnu/automake/automake-1.14.tar.gz
 autoconfbuild
