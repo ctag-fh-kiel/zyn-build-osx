@@ -108,9 +108,9 @@ mkdir -p ${BUILDD}
 #autoconfbuild
 #hash automake
 #
-#src libtool-2.4 tar.gz http://ftp.gnu.org/gnu/libtool/libtool-2.4.tar.gz
-#autoconfbuild
-#hash libtoolize
+src libtool-2.4 tar.gz http://ftp.gnu.org/gnu/libtool/libtool-2.4.tar.gz
+autoconfbuild
+hash libtoolize
 
 #src make-4.1 tar.gz http://ftp.gnu.org/gnu/make/make-4.1.tar.gz
 #autoconfbuild
