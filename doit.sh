@@ -30,6 +30,9 @@ echo "Making bundle directory..."
 export BUNDLEDIR=`mktemp -d -t bundle`
 trap "rm -rf $BUNDLEDIR" EXIT
 
+echo "BUNDLE DIR"
+echo "BUN = <$BUNDLEDIR>"
+
 echo "Starting Deploy..."
 # take files from $HOME/src/zyn_build_<ARCH> and deploy to $BUNDLEDIR
 ./02_deploy.sh

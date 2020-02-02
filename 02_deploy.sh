@@ -2,9 +2,13 @@
 set -e
 
 echo "Echo A"
+echo "Echo A.1"
 test -n $BUNDLEDIR
+echo "Echo A.2"
 test -d $BUNDLEDIR
+echo "Echo A.3"
 test -d $HOME/src/zyn_build_x86_64/zynaddsubfx/build
+echo "Echo A.4"
 
 ################################################################################
 
