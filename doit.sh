@@ -23,7 +23,7 @@ done
 # build in $HOME/src/zyn_build_<ARCH>
 # and keep dependencies in in $HOME/src/zyn_stack_<ARCH>
 ARCHITECTURE=x86_64 ./01_compile.sh
-ARCHITECTURE=i386 ./01_compile.sh
+#ARCHITECTURE=i386 ./01_compile.sh
 
 export BUNDLEDIR=`mktemp -d -t bundle`
 trap "rm -rf $BUNDLEDIR" EXIT

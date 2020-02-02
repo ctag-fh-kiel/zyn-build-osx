@@ -12,8 +12,8 @@ cd $HOME/src/zyn_build_x86_64/zynaddsubfx/build
 DESTDIR=${BUNDLEDIR}/64 make install
 VERSION=`git describe --tags | sed 's/-g[a-f0-9]*$//'`
 
-cd $HOME/src/zyn_build_i386/zynaddsubfx/build
-DESTDIR=${BUNDLEDIR}/32 make install
+#cd $HOME/src/zyn_build_i386/zynaddsubfx/build
+#DESTDIR=${BUNDLEDIR}/32 make install
 
 #######################################################################################
 
@@ -62,7 +62,6 @@ function zynresources {
 
 #######################################################################################
 
-MRUBYZEST32=$HOME/src/zyn_build_i386/mruby-zest-build
 MRUBYZEST64=$HOME/src/zyn_build_x86_64/mruby-zest-build
 
 ZYNLV2=${BUNDLEDIR}/inst/LV2/ZynAddSubFX.lv2
@@ -82,18 +81,15 @@ cp -a ${BUNDLEDIR}/64/lib/lv2/ZynAddSubFX.lv2/* ${ZYNLV2}
 
 lipo -create \
 	${BUNDLEDIR}/64/lib/lv2/ZynAddSubFX.lv2/ZynAddSubFX.dylib \
-	${BUNDLEDIR}/32/lib/lv2/ZynAddSubFX.lv2/ZynAddSubFX.dylib \
 	-output ${ZYNLV2}/ZynAddSubFX.dylib
 strip -x -X ${ZYNLV2}/ZynAddSubFX.dylib
 
 lipo -create \
 	${BUNDLEDIR}/64/lib/lv2/ZynAddSubFX.lv2/ZynAddSubFX_ui.dylib \
-	${BUNDLEDIR}/32/lib/lv2/ZynAddSubFX.lv2/ZynAddSubFX_ui.dylib \
 	-output ${ZYNLV2}/ZynAddSubFX_ui.dylib
 strip -x -X ${ZYNLV2}/ZynAddSubFX_ui.dylib
 
 lipo -create \
-	${MRUBYZEST32}/libzest.dylib \
 	${MRUBYZEST64}/libzest.dylib \
 	-output ${ZYNLV2}/libzest.dylib
 strip -x -X ${ZYNLV2}/libzest.dylib
@@ -103,6 +99,5 @@ cp -v ${ZYNLV2}/libzest.dylib $ZYNVSTRES
 
 lipo -create \
 	${BUNDLEDIR}/64/lib/vst/ZynAddSubFX.dylib \
-	${BUNDLEDIR}/32/lib/vst/ZynAddSubFX.dylib \
 	-output ${ZYNVST}/Contents/MacOS/ZynAddSubFX.dylib
 strip -x -X ${ZYNVST}/Contents/MacOS/ZynAddSubFX.dylib

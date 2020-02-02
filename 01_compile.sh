@@ -189,6 +189,8 @@ make -i install TARGETS=""
 src libuv-v1.9.1 tar.gz http://dist.libuv.org/dist/v1.9.1/libuv-v1.9.1.tar.gz
 sed -i '' 's/__attribute__((visibility("default")))//' ./include/uv.h
 #LIBTOOLIZE=libtoolize ./autogen.sh
+pwd
+ls
 ./autogen.sh
 autoconfbuild --disable-shared --enable-static
 
