@@ -104,9 +104,9 @@ mkdir -p ${BUILDD}
 #hash autoconf
 #hash autoreconf
 
-#src automake-1.14 tar.gz http://ftp.gnu.org/gnu/automake/automake-1.14.tar.gz
-#autoconfbuild
-#hash automake
+src automake-1.14 tar.gz http://ftp.gnu.org/gnu/automake/automake-1.14.tar.gz
+autoconfbuild
+hash automake
 
 #src libtool-2.4 tar.gz http://ftp.gnu.org/gnu/libtool/libtool-2.4.tar.gz
 #autoconfbuild
