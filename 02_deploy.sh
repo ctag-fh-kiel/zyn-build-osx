@@ -5,7 +5,6 @@ echo "Echo A"
 test -n $BUNDLEDIR
 test -d $BUNDLEDIR
 test -d $HOME/src/zyn_build_x86_64/zynaddsubfx/build
-test -d $HOME/src/zyn_build_i386/zynaddsubfx/build
 
 ################################################################################
 
