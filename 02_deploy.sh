@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+echo "Echo A"
 test -n $BUNDLEDIR
 test -d $BUNDLEDIR
 test -d $HOME/src/zyn_build_x86_64/zynaddsubfx/build
@@ -8,9 +9,11 @@ test -d $HOME/src/zyn_build_i386/zynaddsubfx/build
 
 ################################################################################
 
+echo "Echo B"
 cd $HOME/src/zyn_build_x86_64/zynaddsubfx/build
 DESTDIR=${BUNDLEDIR}/64 make install
 VERSION=`git describe --tags | sed 's/-g[a-f0-9]*$//'`
+echo "Echo C"
 
 #cd $HOME/src/zyn_build_i386/zynaddsubfx/build
 #DESTDIR=${BUNDLEDIR}/32 make install
@@ -69,11 +72,13 @@ ZYNVST=${BUNDLEDIR}/inst/VST/ZynAddSubFX.vst
 
 ZYNVSTRES=${ZYNVST}/Contents/Resources
 
+echo "Echo D"
 mkdir -p ${ZYNLV2}
 mkdir -p ${ZYNVSTRES}
 
 cp -a ${BUNDLEDIR}/64/lib/lv2/ZynAddSubFX.lv2presets ${BUNDLEDIR}/inst/LV2/
 
+echo "Echo E"
 zynresources "${ZYNLV2}" "${BUNDLEDIR}/64" "${MRUBYZEST64}"
 zynresources "${ZYNVSTRES}" "${BUNDLEDIR}/64" "${MRUBYZEST64}"
 
@@ -101,3 +106,4 @@ lipo -create \
 	${BUNDLEDIR}/64/lib/vst/ZynAddSubFX.dylib \
 	-output ${ZYNVST}/Contents/MacOS/ZynAddSubFX.dylib
 strip -x -X ${ZYNVST}/Contents/MacOS/ZynAddSubFX.dylib
+echo "Echo F"
