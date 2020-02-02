@@ -24,14 +24,20 @@ done
 # and keep dependencies in in $HOME/src/zyn_stack_<ARCH>
 ARCHITECTURE=x86_64 ./01_compile.sh
 #ARCHITECTURE=i386 ./01_compile.sh
+echo "Everything has compiled..."
 
+echo "Making bundle directory..."
 export BUNDLEDIR=`mktemp -d -t bundle`
 trap "rm -rf $BUNDLEDIR" EXIT
 
+echo "Starting Deploy..."
 # take files from $HOME/src/zyn_build_<ARCH> and deploy to $BUNDLEDIR
 ./02_deploy.sh
+echo "Deploy done..."
 
 # create a .pkg and .dmg from $BUNDLEDIR
 # .pkg creation depends on /Developer/usr/bin/packagemaker
 # (available by default on OSX 10.6)
+echo "Starting pkg..."
 ./03_package.sh
+echo "Pkg done..."
