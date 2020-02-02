@@ -8,6 +8,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: setup_dep
-      run: brew install pkg-config autoconf automake cmake zlib ruby
+      run: brew install pkg-config autoconf automake libtool cmake zlib ruby
     - name: do-it
       run: sh doit.sh
