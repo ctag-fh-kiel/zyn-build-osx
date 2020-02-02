@@ -30,7 +30,7 @@ export PKG_CONFIG_PATH=${PREFIX}/lib/pkgconfig
 export PREFIX
 export SRCDIR
 
-export PATH=${PREFIX}/bin:${HOME}/bin:/usr/local/git/bin/:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=${PREFIX}/bin:${HOME}/bin:/usr/local/git/bin/:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 ################################################################################
 
@@ -99,15 +99,15 @@ mkdir -p ${BUILDD}
 #brew install zlib
 #brew install ruby
 
-src autoconf-2.69 tar.gz http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz
-autoconfbuild
-hash autoconf
-hash autoreconf
-
-src automake-1.14 tar.gz http://ftp.gnu.org/gnu/automake/automake-1.14.tar.gz
-autoconfbuild
-hash automake
-
+#src autoconf-2.69 tar.gz http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz
+#autoconfbuild
+#hash autoconf
+#hash autoreconf
+#
+#src automake-1.14 tar.gz http://ftp.gnu.org/gnu/automake/automake-1.14.tar.gz
+#autoconfbuild
+#hash automake
+#
 #src libtool-2.4 tar.gz http://ftp.gnu.org/gnu/libtool/libtool-2.4.tar.gz
 #autoconfbuild
 #hash libtoolize
