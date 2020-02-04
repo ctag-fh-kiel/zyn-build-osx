@@ -11,3 +11,7 @@ jobs:
       run: brew install pkg-config autoconf automake libtool cmake zlib ruby
     - name: do-it
       run: sh doit.sh
+    - uses: actions/upload-artifact@v1
+      with:
+        name: my-artifact
+        path: /tmp/ZynAddSubFx-3.0.5-115.dmg
