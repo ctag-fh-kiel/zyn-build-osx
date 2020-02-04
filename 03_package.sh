@@ -74,34 +74,34 @@ else
 	DISKNAME=`basename "${MNTPATH}"`
 fi
 
-echo '
-   tell application "Finder"
-     tell disk "'${DISKNAME}'"
-	   open
-	   delay 1
-	   set current view of container window to icon view
-	   set toolbar visible of container window to false
-	   set statusbar visible of container window to false
-	   set the bounds of container window to {400, 200, 800, 425}
-	   set theViewOptions to the icon view options of container window
-	   set arrangement of theViewOptions to not arranged
-	   set icon size of theViewOptions to 64
-	   set background picture of theViewOptions to file ".background:dmgbg.png"
-	   set position of item "LV2" of container window to {100, 100}
-	   set position of item "VST" of container window to {310, 100}
-	   close
-	   open
-	   update without registering applications
-	   delay 5
-	   eject
-     end tell
-   end tell
-' | osascript || {
-	echo "Failed to set background/arrange icons"
-	umount "${DiskDevice}" || true
-	hdiutil eject "${DiskDevice}"
-	exit 1
-}
+#echo '
+#   tell application "Finder"
+#     tell disk "'${DISKNAME}'"
+#	   open
+#	   delay 1
+#	   set current view of container window to icon view
+#	   set toolbar visible of container window to false
+#	   set statusbar visible of container window to false
+#	   set the bounds of container window to {400, 200, 800, 425}
+#	   set theViewOptions to the icon view options of container window
+#	   set arrangement of theViewOptions to not arranged
+#	   set icon size of theViewOptions to 64
+#	   set background picture of theViewOptions to file ".background:dmgbg.png"
+#	   set position of item "LV2" of container window to {100, 100}
+#	   set position of item "VST" of container window to {310, 100}
+#	   close
+#	   open
+#	   update without registering applications
+#	   delay 5
+#	   eject
+#     end tell
+#   end tell
+#' | osascript || {
+#	echo "Failed to set background/arrange icons"
+#	umount "${DiskDevice}" || true
+#	hdiutil eject "${DiskDevice}"
+#	exit 1
+#}
 
 set +e
 chmod -Rf go-w "${MNTPATH}"
